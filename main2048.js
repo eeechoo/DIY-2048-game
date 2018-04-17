@@ -91,26 +91,26 @@ $(document).keydown(function (event) {
     switch (event.keyCode) {
         case 37: //left
             if (moveLeft()) {
-                generateOneNumber()
-                isgameover()
+                setTimeout("generateOneNumber()", 1200)
+                setTimeout("isgameover()", 2200)
             }
             break
         case 38: //up
             if (moveUp()) {
-                generateOneNumber()
-                isgameover()
+                setTimeout("generateOneNumber()", 1200)
+                setTimeout("isgameover()", 2200)
             }
             break
         case 39: //right
             if (moveRight()) {
-                generateOneNumber()
-                isgameover()
+                setTimeout("generateOneNumber()", 1200)
+                setTimeout("isgameover()", 2200)
             }
             break
         case 40: //down
             if (moveDown()) {
-                generateOneNumber()
-                isgameover()
+                setTimeout("generateOneNumber()", 1200)
+                setTimeout("isgameover()", 2200)
             }
             break
         default:
@@ -119,7 +119,12 @@ $(document).keydown(function (event) {
 })
 
 function isgameover() {
+    if(nospace(board) && nomove(board))
+        gameover()
+}
 
+function gameover() {
+    alert("gameover!")
 }
 
 function moveLeft() {
@@ -150,7 +155,7 @@ function moveLeft() {
             }
         }
     }
-    setTimeout("updateBoardView()", 2000)
+    setTimeout("updateBoardView()", 1000)
     return true
 }
 
@@ -182,7 +187,7 @@ function moveRight() {
             }
         }
     }
-    setTimeout("updateBoardView()", 2000)
+    setTimeout("updateBoardView()", 1000)
     return true
 }
 
@@ -214,7 +219,7 @@ function moveUp() {
             }
         }
     }
-    setTimeout("updateBoardView()", 2000)
+    setTimeout("updateBoardView()", 1000)
     return true
 }
 
@@ -246,6 +251,6 @@ function moveDown() {
             }
         }
     }
-    setTimeout("updateBoardView()", 2000)
+    setTimeout("updateBoardView()", 1000)
     return true
 }

@@ -10,7 +10,7 @@ function showNumberWithAnimation(i, j, randNumber) {
         height: "100px",
         top: getPosTop(i, j),
         left: getPosLeft(i, j),
-    }, 2000)
+    }, 1000)
 }
 
 function showMoveAnimation(fromx, fromy, tox, toy) {
