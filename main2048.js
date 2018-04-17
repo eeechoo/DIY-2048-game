@@ -149,6 +149,9 @@ function moveLeft() {
                         //add
                         board[i][k] += board[i][j]
                         board[i][j] = 0
+                        //add score
+                        score += board[i][k]
+                        updateScore(score)
                         break
                     }
                 }
@@ -181,6 +184,9 @@ function moveRight() {
                         //add
                         board[i][k] += board[i][j]
                         board[i][j] = 0
+                        //add score
+                        score += board[i][k]
+                        updateScore(score)
                         break
                     }
                 }
@@ -213,6 +219,9 @@ function moveUp() {
                         //add
                         board[k][i] += board[j][i]
                         board[j][i] = 0
+                        //add score
+                        score += board[k][i]
+                        updateScore(score)
                         break
                     }
                 }
@@ -245,6 +254,9 @@ function moveDown() {
                         //add
                         board[k][i] += board[j][i]
                         board[j][i] = 0
+                        //add score
+                        score += board[k][i]
+                        updateScore(score)
                         break
                     }
                 }
