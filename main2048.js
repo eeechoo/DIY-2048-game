@@ -254,13 +254,13 @@ function moveDown() {
         for (var j = 2; j >= 0; j--) {
             if (board[j][i] !== 0) {
                 for (var k = 3; k > j; k--) {
-                    if (board[k][i] === 0 && noBlockVertical(i, k, j, board)) {
+                    if (board[k][i] === 0 && noBlockVertical(i, j, k, board)) {
                         //move
                         showMoveAnimation(j, i, k, i)
                         board[k][i] = board[j][i]
                         board[j][i] = 0
                         break
-                    } else if (board[k][i] === board[j][i] && noBlockVertical(i, k, j, board) && !hasConflicted[k][i]) {
+                    } else if (board[k][i] === board[j][i] && noBlockVertical(i, j, k, board) && !hasConflicted[k][i]) {
                         //move
                         showMoveAnimation(j, i, k, i)
                         //add
