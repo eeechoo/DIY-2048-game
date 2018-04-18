@@ -177,6 +177,11 @@ document.addEventListener('touchend', function (event) {
     var deltax = endx - startx
     var deltay = endy - starty
 
+    if (Math.abs(deltax) < 0.3 * documentWidth && Math.abs(deltay) < 0.3 * documentWidth) {
+        return 
+    }
+
+    // 手势属于水平方向
     if (Math.abs(deltax) > Math.abs(deltay)) {
         if (deltax < 0) {
             // moveLeft
@@ -191,7 +196,7 @@ document.addEventListener('touchend', function (event) {
                 setTimeout("isgameover()", 2200)
             }
         }
-    } else {
+    } else {    //手势属于竖直方向
         if (deltay < 0) {
             // moveup
             if (moveUp()) {
