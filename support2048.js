@@ -1,4 +1,5 @@
 //这样设计，相当于整个2048游戏窗口宽度 和 移动设备宽度一样
+// 这里变量不加var，为了标识这里的变量和程序无关，和设备有关
 documentWidth = window.screen.availWidth
 gridContainerWidth = 0.92 * documentWidth
 cellSideLength = 0.18 * documentWidth

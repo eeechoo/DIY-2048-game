@@ -2,6 +2,11 @@ var board = new Array()
 var score = 0
 var hasConflicted = new Array()
 
+var startx = 0
+var starty = 0
+var endx = 0
+var endy = 0
+
  $(document).ready(function () {
      prepareForMobile()
      newgame()
@@ -159,6 +164,50 @@ $(document).keydown(function (event) {
             break
     }
 })
+
+//触屏设备事件绑定
+document.addEventListener('touchstart', function (event) {
+    startx = event.touches[0].pageX
+    starty = event.touches[0].pageY
+})
+document.addEventListener('touchend', function (event) {
+    endx = event.changedTouches[0].pageX
+    endy = event.changedTouches[0].pageY
+
+    var deltax = endx - startx
+    var deltay = endy - starty
+
+    if (Math.abs(deltax) > Math.abs(deltay)) {
+        if (deltax < 0) {
+            // moveLeft
+            if (moveLeft()) {
+                setTimeout("generateOneNumber()", 1200)
+                setTimeout("isgameover()", 2200)
+            }
+        } else {
+            // moveright
+            if (moveRight()) {
+                setTimeout("generateOneNumber()", 1200)
+                setTimeout("isgameover()", 2200)
+            }
+        }
+    } else {
+        if (deltay < 0) {
+            // moveup
+            if (moveUp()) {
+                setTimeout("generateOneNumber()", 1200)
+                setTimeout("isgameover()", 2200)
+            }
+        } else {
+            // movedown
+            if (moveDown()) {
+                setTimeout("generateOneNumber()", 1200)
+                setTimeout("isgameover()", 2200)
+            }
+        }
+    }
+})
+
 
 function isgameover() {
     if(nospace(board) && nomove(board))
